@@ -10,7 +10,6 @@ CREATE TABLE "entries" (
   "id" bigserial PRIMARY KEY,
   "account_id" bigint NOT NULL,
   "amount" bigint NOT NULL,
-  "role" varchar NOT NULL,
   "created_at" timestamp NOT NULL DEFAULT (now())
 );
 

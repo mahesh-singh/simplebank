@@ -21,7 +21,6 @@ type Entry struct {
 	AccountID int64 `json:"account_id"`
 	// can be -ve or +ve
 	Amount    int64     `json:"amount"`
-	Role      string    `json:"role"`
 	CreatedAt time.Time `json:"created_at"`
 }
 

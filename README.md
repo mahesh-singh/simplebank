@@ -11,6 +11,7 @@ DB
     - `migrate create -ext sql -dir db/migration -seq <migration title/file name>`
   - Install sqlc
     - `go install github.com/kyleconroy/sqlc/cmd/sqlc@latest`
+    - check version `sqlc version`
     - how to use sqlc
       - Create CRUD queries in ./db/query directory with .sql via follwoing the syntax from https://docs.sqlc.dev/en/stable/howto/select.html
-      - 
+      - `make sqlc` will generate the go files under `./db/sqlc`

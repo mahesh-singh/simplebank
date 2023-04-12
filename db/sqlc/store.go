@@ -91,14 +91,31 @@ func (store *Store) TransferTx(ctx context.Context, arg TransferTxParam) (Transf
 			return err
 		}
 
-		result.FromAccount, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{ID: arg.FromAccountID, Amount: -arg.Amount})
-		if err != nil {
-			return err
-		}
+		//This is to fix the deadlock. It will only update smaller account id first.
+		//Ff two queries trying to update same account, it will prevent the deadlock
+		//Otherwise, one query will update the account1 and waiting to get the lock on account 2,
+		//where other query might update the account 2 and trying to acquire the lock on account 1.
+		//This will create the deadlock.
+		if arg.FromAccountID < arg.ToAccountID {
+			result.FromAccount, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{ID: arg.FromAccountID, Amount: -arg.Amount})
+			if err != nil {
+				return err
+			}
 
-		result.ToAccount, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{ID: arg.ToAccountID, Amount: arg.Amount})
-		if err != nil {
-			return err
+			result.ToAccount, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{ID: arg.ToAccountID, Amount: arg.Amount})
+			if err != nil {
+				return err
+			}
+		} else {
+
+			result.ToAccount, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{ID: arg.ToAccountID, Amount: arg.Amount})
+			if err != nil {
+				return err
+			}
+			result.FromAccount, err = q.AddAccountBalance(ctx, AddAccountBalanceParams{ID: arg.FromAccountID, Amount: -arg.Amount})
+			if err != nil {
+				return err
+			}
 		}
 
 		return nil

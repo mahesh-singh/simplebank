@@ -1,0 +1,15 @@
+//Create Account request
+POST http://localhost:8181/accounts HTTP/1.1
+content-type: application/json
+
+{
+    "owner": "Mahesh",
+    "currency": "INR"
+}
+
+###
+
+GET http://localhost:8181/accounts/0 HTTP/1.1
+
+###
+GET http://localhost:8181/accounts?page_id=1&page_size=10 HTTP/1.1

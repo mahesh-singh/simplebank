@@ -4,7 +4,7 @@ content-type: application/json
 
 {
     "owner": "Mahesh",
-    "currency": "INR"
+    "currency": "EUR"
 }
 
 ###
@@ -13,3 +13,15 @@ GET http://localhost:8181/accounts/1 HTTP/1.1
 
 ###
 GET http://localhost:8181/accounts?page_id=10&page_size=10 HTTP/1.1
+
+
+###
+POST http://localhost:8181/transfer HTTP/1.1
+content-type: application/json
+
+{
+    "from_account_id": 1,
+    "to_account_id": 2,
+    "amount": 10,
+    "currency": "INR"
+}

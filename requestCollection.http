@@ -25,3 +25,15 @@ content-type: application/json
     "amount": 10,
     "currency": "INR"
 }
+
+###
+//Create Account request
+POST http://localhost:8181/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "mahesh",
+    "full_name": "Mahesh Singh",
+    "password": "password",
+    "email": "mahesh1@myemail1.com"
+}

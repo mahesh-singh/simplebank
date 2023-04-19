@@ -129,7 +129,7 @@ func TestCreateUserAPI(t *testing.T) {
 
 			store := mockdb.NewMockStore(ctrl)
 			testCase.buildStub(store)
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 			data, err := json.Marshal(testCase.body)
 

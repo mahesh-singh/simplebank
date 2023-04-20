@@ -39,7 +39,11 @@ jobs:
       with:
         go-version: 1.20
     
-    
+    - name: Set up workspace
+      run: |
+        mkdir -p $HOME/go
+        echo "export GOPATH=$HOME/go" >> $HOME/.bashrc
+        echo "export PATH=\$PATH:\$GOPATH/bin" >> $HOME/.bashrc
     - name: Checkout code 
       uses: actions/checkout@v2
     - name: Install dependencies

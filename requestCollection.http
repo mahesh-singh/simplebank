@@ -1,29 +1,32 @@
 //Create Account request
 POST http://localhost:8181/accounts HTTP/1.1
 content-type: application/json
+Authorization: bearer v2.local.aBhDb-rWFpIsmqUbQw3sKW8H0NnzCrHcYijtKPzw6mVpRUDkkOTwau5nYOaQdl39ZqhrIpv6NzSm5zRtw8gX8ELEeFcFGwSx2UDmyti4cNcdQ-1OwVp9pQOK91PA4C_cHJOYsV2zn6p38cKViCZh5QwLVJMS2KanQR4Qe_aWMwDM9NHCzOvJmpcvSa8igmAvOjcZlpwD6QExWXx9cBn7twHhoi63gn6kbWgJdlkHuCIjCoqw1Fjep8lH3Z-SJ7C_bYgc6Y1r.bnVsbA
 
 {
-    "owner": "Mahesh",
+    "owner": "mahesh",
     "currency": "EUR"
 }
 
 ###
 
-GET http://localhost:8181/accounts/1 HTTP/1.1
+GET http://localhost:8181/accounts/82 HTTP/1.1
+Authorization: bearer v2.local.aBhDb-rWFpIsmqUbQw3sKW8H0NnzCrHcYijtKPzw6mVpRUDkkOTwau5nYOaQdl39ZqhrIpv6NzSm5zRtw8gX8ELEeFcFGwSx2UDmyti4cNcdQ-1OwVp9pQOK91PA4C_cHJOYsV2zn6p38cKViCZh5QwLVJMS2KanQR4Qe_aWMwDM9NHCzOvJmpcvSa8igmAvOjcZlpwD6QExWXx9cBn7twHhoi63gn6kbWgJdlkHuCIjCoqw1Fjep8lH3Z-SJ7C_bYgc6Y1r.bnVsbA
 
 ###
 GET http://localhost:8181/accounts?page_id=10&page_size=10 HTTP/1.1
-
+Authorization: bearer v2.local.aBhDb-rWFpIsmqUbQw3sKW8H0NnzCrHcYijtKPzw6mVpRUDkkOTwau5nYOaQdl39ZqhrIpv6NzSm5zRtw8gX8ELEeFcFGwSx2UDmyti4cNcdQ-1OwVp9pQOK91PA4C_cHJOYsV2zn6p38cKViCZh5QwLVJMS2KanQR4Qe_aWMwDM9NHCzOvJmpcvSa8igmAvOjcZlpwD6QExWXx9cBn7twHhoi63gn6kbWgJdlkHuCIjCoqw1Fjep8lH3Z-SJ7C_bYgc6Y1r.bnVsbA
 
 ###
 POST http://localhost:8181/transfer HTTP/1.1
 content-type: application/json
+Authorization: bearer v2.local.aBhDb-rWFpIsmqUbQw3sKW8H0NnzCrHcYijtKPzw6mVpRUDkkOTwau5nYOaQdl39ZqhrIpv6NzSm5zRtw8gX8ELEeFcFGwSx2UDmyti4cNcdQ-1OwVp9pQOK91PA4C_cHJOYsV2zn6p38cKViCZh5QwLVJMS2KanQR4Qe_aWMwDM9NHCzOvJmpcvSa8igmAvOjcZlpwD6QExWXx9cBn7twHhoi63gn6kbWgJdlkHuCIjCoqw1Fjep8lH3Z-SJ7C_bYgc6Y1r.bnVsbA
 
 {
-    "from_account_id": 1,
-    "to_account_id": 2,
+    "from_account_id": 80,
+    "to_account_id": 82,
     "amount": 10,
-    "currency": "INR"
+    "currency": "EUR"
 }
 
 ###
@@ -44,6 +47,6 @@ POST http://localhost:8181/users/login HTTP/1.1
 content-type: application/json
 
 {
-    "username": "maheshsingh",
+    "username": "mahesh",
     "password": "password"
 }

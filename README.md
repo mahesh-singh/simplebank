@@ -17,9 +17,11 @@ DB
       - `make sqlc` will generate the go files under `./db/sqlc`
   - Install mockgen
     - `go install github.com/golang/mock/mockgen@v1.6.0`
-- Makefile
+Makefile
   - Various command to run the docker, restart the docker, run the test etc
-- request collection
+request collection
   - install vs code extension named - REST Client 
   - requestCollection.http file should show send require hyperlink for each request
-  - 
+
+docker login with ecr to pull the images from ecr
+- `aws ecr get-login-password | docker login --username AWS --password-stdin 625239771397.dkr.ecr.ap-southeast-2.amazonaws.com`
